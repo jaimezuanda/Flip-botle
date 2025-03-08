@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flip The Bottle</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        .bottle { width: 100px; transition: transform 1s; }
+        .button { padding: 10px 20px; font-size: 18px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Flip The Bottle</h1>
+    <img id="bottle" class="bottle" src="https://i.imgur.com/jNNT4gG.png" alt="Bottle">
+    <br>
+    <button class="button" onclick="flipBottle()">Girar Garrafa</button>
+    <p id="result"></p>
+
+    <script>
+        function flipBottle() {
+            let bottle = document.getElementById("bottle");
+            let result = document.getElementById("result");
+            let randomRotation = Math.random() > 0.5 ? 360 : 450; // Sucesso ou falha
+
+            bottle.style.transform = `rotate(${randomRotation}deg)`;
+
+            setTimeout(() => {
+                if (randomRotation === 360) {
+                    result.innerHTML = "Sucesso! Você acertou o flip!";
+                } else {
+                    result.innerHTML = "Falha! Tente novamente.";
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
